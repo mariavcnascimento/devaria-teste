@@ -1,0 +1,9 @@
+SELECT
+    P.Nome AS Produtos_Nao_Vendidos,
+    M.Nome AS Marca
+FROM
+    Produto AS P
+    LEFT JOIN Item_Pedido_Compra AS I ON P.Codigo = I.Codigo_Produto
+    INNER JOIN Marca AS M ON P.Codigo_Marca = M.Codigo
+WHERE
+    I.Codigo_Produto IS NULL
